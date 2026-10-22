@@ -2,7 +2,7 @@
 **Process:** Lost/damaged student ID card replacement at ICFAI Tech Campus
 **Investigation type:** Direct personal experience + recalled student observation
 **Date of investigation:** 22 October 2026
-**Investigator:** [Your Name] — B.Tech DSAI Student, ICFAI Tech Campus, [Batch Year]
+**Investigator:** Venkat Surya Kodati — B.Tech DSAI Student, ICFAI Tech Campus.
 
 > **Access Note:** This process was personally experienced by the investigator as a student at ICFAI.
 > Steps are labelled **[OBS]** where directly experienced or observed, **[EST]** where estimated,
