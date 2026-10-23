@@ -41,8 +41,8 @@
 |--------|-----|---------|
 | ICFAI DSAI Programme Structure | [https://www.icfaiuniversity.in](https://www.ifheindia.org/icfai-tech-school-hyderabad/icfaitech-btech-program-structure) | 22 Oct 2026 |
 | JD1 — Generative AI Engineer, Digitals AI Inc. | https://www.linkedin.com/jobs/view/4478589731/ | 23 Oct 2026 |
-| JD2 — Associate Data Scientist, TriNet | https://www.linkedin.com/jobs/ | 23 Oct 2026 |
-| JD3 — Data Scientist I, TE Connectivity | https://www.linkedin.com/jobs/ | 23 Oct 2026 |
+| JD2 — Associate Data Scientist, TriNet | https://www.linkedin.com/jobs/view/4479555959/ | 23 Oct 2026 |
+| JD3 — Data Scientist I, TE Connectivity | https://www.linkedin.com/jobs/view/4480355527/ | 23 Oct 2026 |
 
 ---
 
