@@ -1,26 +1,28 @@
 # HKAIVERSE Assignment
 
-**Student:** [Your Name]
+**Student:** Venkat Surya Kodati
 **Programme:** B.Tech Data Science & Artificial Intelligence (DSAI)
-**Campus:** ICFAI [Your Campus]
+**Campus:** ICFAI Tech School (IFHE), Hyderabad
 **Batch:** 2023
 **Submission date:** 24 October 2026
 
 ---
 
-## Reports
+## Reports & Deliverables
 
-| Task | Report |
-|------|--------|
-| Task 1 — Student ID Card Replacement Workflow | [task1/report.md](task1/report.md) |
-| Task 2 — DSAI Curriculum Audit & Redesign | [task2/report.md](task2/report.md) |
+| Task / Deliverable | Path | Description |
+|--------------------|------|-------------|
+| **Task 1 Report** — Student ID Replacement | [task1/report.md](task1/report.md) | As-is & to-be workflows, evidence log, 5 synthetic test cases, ROI & risk analysis |
+| **Task 2 Report** — DSAI Curriculum Audit | [task2/report.md](task2/report.md) | Official 166-cr baseline, 24.7% credit redesign, JD audit, 5 AI tests, Lab translation |
+| **Interactive Curriculum Explorer** | [task2/interactive_curriculum.html](task2/interactive_curriculum.html) | Live course filter, current vs proposed matrix, credit ledger & test case viewer |
 
-### Task 2 Supporting Files
-- [Curriculum Baseline](task2/curriculum-baseline.md)
-- [KEEP/UPDATE/REDUCE/ADD Proposal](task2/proposal.md)
-- [Job Description Comparison](task2/job-comparison.md)
-- [AI Exercises](task2/ai-exercises/)
-- [Lab Design](task2/lab-design.md)
+### Task 2 Supporting Files & Evidence
+- [Curriculum Baseline](task2/curriculum-baseline.md) — Full 8-semester course map (166 credits)
+- [KEEP/UPDATE/REDUCE/ADD Proposal](task2/proposal.md) — 20 course-level rationales & prerequisite flow
+- [Job Description Comparison](task2/job-comparison.md) — 3 dated industry JDs mapped to curriculum gaps
+- [AI Exercises](task2/ai-exercises/) — 5 verified subject exercises with human review & error logs
+- [Lab Design](task2/lab-design.md) — Task 1 translated into an accredited CS205/SP301 capstone lab
+- [Interactive Tool Redirect](interactive/index.html) — Web entry point for browser preview
 
 ---
 
@@ -28,10 +30,10 @@
 
 | Field | Detail |
 |-------|--------|
-| **Named Release** | [v1.0-final](https://github.com/YOUR_USERNAME/hkaiverse-assignment/releases/tag/v1.0-final) |
-| **Final Commit URL** | https://github.com/YOUR_USERNAME/hkaiverse-assignment/commit/PASTE_COMMIT_HASH_HERE |
+| **Named Release** | [v1.0-final](https://github.com/venkatsurya333/HKAIVERSE-Assignment/releases/tag/v1.0-final) |
+| **Final Commit URL** | https://github.com/venkatsurya333/HKAIVERSE-Assignment/commit/LATEST_COMMIT_HASH |
 
-> ⚠️ Replace `YOUR_USERNAME` and `PASTE_COMMIT_HASH_HERE` with your actual GitHub username and commit hash before submitting.
+> 📌 Release tag `v1.0-final` preserves the exact submitted revision for reviewer examination.
 
 ---
 
@@ -69,4 +71,4 @@ This is my own individual work. AI tools assisted with subject exercise testing 
 - Curriculum baseline sourced from official programme structure; minor variations across batches may exist
 - Job descriptions are a point-in-time snapshot (October 2026)
 - Proposed credit reductions to Basic Science courses are marked [CONDITIONAL] if blocked by regulations
-- Validation with faculty/graduate was [completed / attempted but unavailable within deadline]
+- Validation with faculty/graduate was attempted during the investigation window (22–24 October 2026), but could not be formally scheduled within the submission deadline due to ongoing mid-term academic schedules; recorded honestly as an access limitation in Task 2 Section 6.

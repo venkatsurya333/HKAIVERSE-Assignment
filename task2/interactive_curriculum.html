@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICFAITech B.Tech DSAI Curriculum Audit & 2030 Redesign</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-secondary: #111827;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(99, 102, 241, 0.3);
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+      --accent-indigo: #6366f1;
+      --accent-indigo-light: #818cf8;
+      --accent-purple: #a855f7;
+      --accent-cyan: #06b6d4;
+      --badge-keep: #10b981;
+      --badge-keep-bg: rgba(16, 185, 129, 0.15);
+      --badge-update: #38bdf8;
+      --badge-update-bg: rgba(56, 189, 248, 0.15);
+      --badge-reduce: #f59e0b;
+      --badge-reduce-bg: rgba(245, 158, 11, 0.15);
+      --badge-add: #c084fc;
+      --badge-add-bg: rgba(192, 132, 252, 0.15);
+      --badge-official: #64748b;
+      --badge-official-bg: rgba(100, 116, 139, 0.2);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-highlight: rgba(99, 102, 241, 0.4);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 35%),
+        radial-gradient(circle at 85% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      width: 100%;
+    }
+
+    /* Header */
+    header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
+      color: white;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+      letter-spacing: -0.5px;
+    }
+
+    .title-group h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .title-group p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .theme-toggle, .btn-secondary {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .theme-toggle:hover, .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-highlight);
+    }
+
+    /* Disclaimer & Legend Bar */
+    .authority-banner {
+      background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.08));
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.25rem;
+      margin-bottom: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .legend-chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.2px;
+    }
+
+    .chip-official {
+      background: var(--badge-official-bg);
+      color: #94a3b8;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .chip-proposal {
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--accent-indigo-light);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+    }
+
+    .chip-keep { background: var(--badge-keep-bg); color: var(--badge-keep); }
+    .chip-update { background: var(--badge-update-bg); color: var(--badge-update); }
+    .chip-reduce { background: var(--badge-reduce-bg); color: var(--badge-reduce); }
+    .chip-add { background: var(--badge-add-bg); color: var(--badge-add); }
+
+    /* Stat Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-highlight);
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+    }
+
+    .card-purple::before { background: var(--accent-purple); }
+    .card-indigo::before { background: var(--accent-indigo); }
+    .card-emerald::before { background: var(--badge-keep); }
+    .card-amber::before { background: var(--badge-reduce); }
+    .card-cyan::before { background: var(--badge-update); }
+
+    .metric-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-title {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .metric-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .metric-subtext {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Tab Navigation */
+    .tabs-nav {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1.75rem;
+      overflow-x: auto;
+      padding-bottom: 1px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.75rem 1.25rem;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .tab-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .tab-btn.active {
+      color: var(--accent-indigo-light);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-indigo), var(--accent-purple));
+      border-radius: 2px;
+    }
+
+    /* Filter Controls */
+    .filter-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .search-box {
+      flex: 1 1 280px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.65rem 1rem 0.65rem 2.5rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent-indigo);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .filter-selects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    select {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.65rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-family: inherit;
+      cursor: pointer;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    select:focus {
+      border-color: var(--accent-indigo);
+    }
+
+    .badge-counter {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Course Cards / Grid */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .course-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .course-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-highlight);
+    }
+
+    .course-card.status-ADD {
+      border-left: 4px solid var(--badge-add);
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), transparent);
+    }
+    .course-card.status-REDUCE {
+      border-left: 4px solid var(--badge-reduce);
+    }
+    .course-card.status-UPDATE {
+      border-left: 4px solid var(--badge-update);
+    }
+    .course-card.status-KEEP {
+      border-left: 4px solid var(--badge-keep);
+    }
+    .course-card.status-UNCHANGED {
+      border-left: 4px solid var(--badge-official);
+    }
+
+    .course-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.65rem;
+    }
+
+    .course-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--accent-indigo-light);
+    }
+
+    .course-badges {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .course-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .course-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .course-rationale {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.85rem;
+      margin-top: 0.5rem;
+      line-height: 1.45;
+    }
+
+    .course-rationale strong {
+      color: var(--text-primary);
+    }
+
+    .course-bottom {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .credit-tag {
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .credit-delta {
+      font-weight: 700;
+    }
+    .delta-pos { color: var(--badge-add); }
+    .delta-neg { color: var(--badge-reduce); }
+    .delta-zero { color: var(--text-muted); }
+
+    /* Comparison Table View */
+    .table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-primary);
+    }
+
+    .td-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: var(--accent-indigo-light);
+    }
+
+    .td-title {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Calculator & Simulator */
+    .calc-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .calc-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-header h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .calc-header p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .calc-balance-bar {
+      height: 28px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      display: flex;
+      overflow: hidden;
+      margin: 1.25rem 0;
+    }
+
+    .bar-segment {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: white;
+      transition: var(--transition);
+    }
+
+    .bar-unchanged { background: #475569; width: 68.6%; } /* 114 cr */
+    .bar-keep { background: #059669; width: 6.6%; }      /* 11 cr */
+    .bar-update { background: #0284c7; width: 6.6%; }    /* 11 cr */
+    .bar-reduce { background: #d97706; width: 10.8%; }   /* 18 cr after red */
+    .bar-add { background: #9333ea; width: 7.2%; }       /* 12 cr */
+
+    .ledger-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .ledger-box {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+
+    .ledger-box h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ledger-list {
+      list-style: none;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .ledger-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0.6rem;
+      background: var(--bg-glass);
+      border-radius: var(--radius-sm);
+    }
+
+    /* Modal / Drawer */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-highlight);
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      width: 100%;
+      padding: 1.75rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      animation: modalFadeIn 0.2s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.25rem;
+    }
+
+    .modal-close:hover {
+      color: var(--text-primary);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      padding: 1.5rem 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .header-content { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      .ledger-grid { grid-template-columns: 1fr; }
+      .course-grid { grid-template-columns: 1fr; }
+      .filter-panel { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="brand">
+        <div class="logo-badge">ICFAI</div>
+        <div class="title-group">
+          <h1>B.Tech DSAI Curriculum Audit & 2030 Redesign</h1>
+          <p>ICFAI Tech School (IFHE), Hyderabad • Admission Batch 2023 • Candidate: Venkat Surya Kodati</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggleBtn" title="Toggle Light/Dark Theme">🌓 Theme</button>
+        <a href="report.md" class="btn-secondary">📄 View Report</a>
+        <a href="../README.md" class="btn-secondary">🏠 Back to README</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Authority & Truth Legend Banner -->
+    <div class="authority-banner">
+      <div>
+        <strong style="color: var(--text-primary); font-size: 0.9rem;">Information Boundary & Evidence Framework:</strong>
+        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.2rem;">
+          This view clearly separates official ICFAI curriculum data from the student-authored redesign proposal.
+        </p>
+      </div>
+      <div class="legend-chips">
+        <span class="chip chip-official">🏛️ Official Baseline Fact</span>
+        <span class="chip chip-proposal">💡 Proposed 2030 Redesign</span>
+        <span class="chip chip-keep">🟢 KEEP</span>
+        <span class="chip chip-update">🔵 UPDATE</span>
+        <span class="chip chip-reduce">🟠 REDUCE</span>
+        <span class="chip chip-add">🟣 ADD</span>
+      </div>
+    </div>
+
+    <!-- Stat Metrics Grid -->
+    <div class="metrics-grid">
+      <div class="metric-card card-indigo">
+        <div class="metric-header">
+          <span class="metric-title">Verified Baseline</span>
+          <span class="chip chip-official">Official Fact</span>
+        </div>
+        <div class="metric-value">166 <span style="font-size: 1rem; font-weight: 500;">cr</span></div>
+        <div class="metric-subtext">8 Semesters + Summer Internship</div>
+      </div>
+
+      <div class="metric-card card-purple">
+        <div class="metric-header">
+          <span class="metric-title">Credits Affected</span>
+          <span class="chip chip-proposal">Proposal</span>
+        </div>
+        <div class="metric-value">24.7%</div>
+        <div class="metric-subtext">41 cr affected (Target: 20–25%)</div>
+      </div>
+
+      <div class="metric-card card-amber">
+        <div class="metric-header">
+          <span class="metric-title">Total Reductions</span>
+          <span class="chip chip-reduce">-12 cr</span>
+        </div>
+        <div class="metric-value">9 <span style="font-size: 1rem; font-weight: 500;">courses</span></div>
+        <div class="metric-subtext">29 cr original → 17 cr trimmed</div>
+      </div>
+
+      <div class="metric-card card-cyan">
+        <div class="metric-header">
+          <span class="metric-title">New Additions</span>
+          <span class="chip chip-add">+12 cr</span>
+        </div>
+        <div class="metric-value">5 <span style="font-size: 1rem; font-weight: 500;">courses</span></div>
+        <div class="metric-subtext">MLOps, Data Eng, LLMs, Stats, Ethics</div>
+      </div>
+
+      <div class="metric-card card-emerald">
+        <div class="metric-header">
+          <span class="metric-title">Net Balance</span>
+          <span class="chip chip-keep">Balanced</span>
+        </div>
+        <div class="metric-value">0 <span style="font-size: 1rem; font-weight: 500;">Δ cr</span></div>
+        <div class="metric-subtext">166 cr Total Preserved Exactly</div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="filter-view">🔍 Interactive Course Explorer</button>
+      <button class="tab-btn" data-tab="comparison-view">⚖️ Current vs. Proposed Comparison</button>
+      <button class="tab-btn" data-tab="calculator-view">🧮 Live Credit Balance Ledger</button>
+      <button class="tab-btn" data-tab="lab-view">🧪 Task 1 Lab Translation</button>
+    </div>
+
+    <!-- TAB 1: Filter & Search View -->
+    <section id="filter-view" class="tab-content active">
+      <div class="filter-panel">
+        <div class="search-box">
+          <span class="search-icon">🔎</span>
+          <input type="text" id="searchInput" placeholder="Search by course code, title, or keyword (e.g., MLOps, SQL, Python)...">
+        </div>
+        <div class="filter-selects">
+          <select id="semesterFilter">
+            <option value="ALL">All Semesters (I–VIII)</option>
+            <option value="Sem I">Semester I</option>
+            <option value="Sem II">Semester II</option>
+            <option value="Sem III">Semester III</option>
+            <option value="Sem IV">Semester IV</option>
+            <option value="Summer">Summer Term</option>
+            <option value="Sem V">Semester V</option>
+            <option value="Sem VI">Semester VI</option>
+            <option value="Sem VII">Semester VII</option>
+            <option value="Sem VIII">Semester VIII</option>
+          </select>
+
+          <select id="actionFilter">
+            <option value="ALL">All Actions (KEEP, UPDATE, REDUCE, ADD)</option>
+            <option value="ADD">🟣 Proposed ADD (+12 cr)</option>
+            <option value="UPDATE">🔵 Proposed UPDATE (Content)</option>
+            <option value="REDUCE">🟠 Proposed REDUCE (-12 cr)</option>
+            <option value="KEEP">🟢 Verified KEEP (Foundation)</option>
+            <option value="UNCHANGED">⚪ Unchanged Baseline Courses</option>
+          </select>
+
+          <select id="categoryFilter">
+            <option value="ALL">All Categories</option>
+            <option value="DSAI Core">DSAI Core</option>
+            <option value="CS Core">CS Core / Programming</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Basic Science">Basic Science</option>
+            <option value="Engineering">Engineering Science</option>
+            <option value="Management">Management / Humanities</option>
+          </select>
+
+          <div class="badge-counter" id="courseCountDisplay">Showing 47 courses</div>
+        </div>
+      </div>
+
+      <div class="course-grid" id="courseGrid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </section>
+
+    <!-- TAB 2: Comparison Matrix View -->
+    <section id="comparison-view" class="tab-content" style="display: none;">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Semester</th>
+              <th>Code</th>
+              <th>Course Title</th>
+              <th>Baseline Cr (Official)</th>
+              <th>Proposed Cr (Redesign)</th>
+              <th>Net Change</th>
+              <th>Action</th>
+              <th>Industry / Curriculum Rationale</th>
+            </tr>
+          </thead>
+          <tbody id="comparisonTableBody">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 3: Credit Calculator & Ledger -->
+    <section id="calculator-view" class="tab-content" style="display: none;">
+      <div class="calc-container">
+        <div class="calc-header">
+          <h2>Programme Credit Distribution & Balance Ledger</h2>
+          <p>Verified Programme Baseline: <strong>166 Credits</strong> • Exact Target Share: <strong>41 Credits Affected (24.7%)</strong> • Net Delta: <strong>0 Credits</strong></p>
+        </div>
+
+        <div class="calc-balance-bar" title="Credit allocation distribution">
+          <div class="bar-segment bar-unchanged" style="width: 68.6%;">Unchanged Core (114 cr)</div>
+          <div class="bar-segment bar-keep" style="width: 6.6%;">Key Keep (11 cr)</div>
+          <div class="bar-segment bar-update" style="width: 6.6%;">Update (11 cr)</div>
+          <div class="bar-segment bar-reduce" style="width: 10.8%;">Reduced (18 cr)</div>
+          <div class="bar-segment bar-add" style="width: 7.2%;">Added (12 cr)</div>
+        </div>
+
+        <div class="ledger-grid">
+          <!-- Reductions Ledger -->
+          <div class="ledger-box">
+            <h3 style="color: var(--badge-reduce);">
+              <span>🟠 Reductions (Credits Freed)</span>
+              <span class="chip chip-reduce">-12 Credits</span>
+            </h3>
+            <ul class="ledger-list">
+              <li class="ledger-item">
+                <span><strong>EC101</strong> Basic Electronics (Sem I)</span>
+                <span>4 → 2 cr <strong style="color: var(--badge-reduce);">(-2)</strong></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>CHY101</strong> Chemistry (Sem I)</span>
+                <span>4 → 2 cr <strong style="color: var(--badge-reduce);">(-2)</strong></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>MT102</strong> Engineering Graphics (Sem II)</span>
+                <span>3 → 1 cr <strong style="color: var(--badge-reduce);">(-2)</strong></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>CS204</strong> Computer Organization (Sem IV)</span>
+                <span>3 → 2 cr <strong style="color: var(--badge-reduce);">(-1)</strong></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>MG201</strong> Engineering Economics (Sem IV)</span>
+                <span>3 → 2 cr <strong style="color: var(--badge-reduce);">(-1)</strong></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>ML301</strong> Metaheuristic Optimization (Sem V)</span>
+                <span>3 → 2 cr <strong style="color: var(--badge-reduce);">(-1)</strong></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>ML302</strong> Fuzzy & Rough Sets (Sem VI)</span>
+                <span>3 → 2 cr <strong style="color: var(--badge-reduce);">(-1)</strong></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>EC308</strong> Embedded Systems (Sem VI)</span>
+                <span>3 → 2 cr <strong style="color: var(--badge-reduce);">(-1)</strong></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>DS401</strong> Human Computer Interaction (Sem VII)</span>
+                <span>3 → 2 cr <strong style="color: var(--badge-reduce);">(-1)</strong></span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Additions Ledger -->
+          <div class="ledger-box">
+            <h3 style="color: var(--badge-add);">
+              <span>🟣 Additions (Industry 2030 Additions)</span>
+              <span class="chip chip-add">+12 Credits</span>
+            </h3>
+            <ul class="ledger-list">
+              <li class="ledger-item">
+                <span><strong>NEW-01</strong> MLOps & Model Deployment (Sem VI)</span>
+                <span><strong>+3 cr</strong> <span class="chip chip-official">JD1, JD3</span></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>NEW-02</strong> Data Engineering & Pipelines (Sem V)</span>
+                <span><strong>+3 cr</strong> <span class="chip chip-official">Airflow/Kafka</span></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>NEW-03</strong> LLM Engineering & AI Agents (Sem VII)</span>
+                <span><strong>+3 cr</strong> <span class="chip chip-official">JD1 RAG/Agents</span></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>NEW-04</strong> Statistical Inference & A/B Testing (Sem IV)</span>
+                <span><strong>+2 cr</strong> <span class="chip chip-official">JD2 Experimentation</span></span>
+              </li>
+              <li class="ledger-item">
+                <span><strong>NEW-05</strong> AI Ethics & Responsible AI (Sem VI)</span>
+                <span><strong>+1 cr</strong> <span class="chip chip-official">Compliance/Fairness</span></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-primary); border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-secondary);">
+          <strong>Regulatory Fallback Note:</strong> If university accreditation bodies require strict minimum credit hours for Basic Sciences (EC101, CHY101, MT102), those 6 credit reductions are marked <strong style="color: var(--badge-reduce);">[CONDITIONAL]</strong> and can alternatively be absorbed via interdisciplinary elective baskets as authorized under ICFAI Tech academic regulations.
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: Task 1 Lab Translation -->
+    <section id="lab-view" class="tab-content" style="display: none;">
+      <div class="calc-container">
+        <div class="calc-header">
+          <h2>Task 1 → DSAI Capstone Lab Design</h2>
+          <p>Direct translation of the ID Card Replacement Investigation into an accredited practical curriculum module.</p>
+        </div>
+
+        <div class="metrics-grid" style="margin-bottom: 1.5rem;">
+          <div class="metric-card card-indigo">
+            <div class="metric-title">Host Course</div>
+            <div class="metric-value" style="font-size: 1.35rem;">CS205 / SP301</div>
+            <div class="metric-subtext">Web-Enabled Tech or Special Project</div>
+          </div>
+          <div class="metric-card card-cyan">
+            <div class="metric-title">Duration & Unit</div>
+            <div class="metric-value" style="font-size: 1.35rem;">4 Weeks</div>
+            <div class="metric-subtext">1–2 Lab Credits</div>
+          </div>
+          <div class="metric-card card-emerald">
+            <div class="metric-title">Synthetic Records</div>
+            <div class="metric-value" style="font-size: 1.35rem;">50 Records</div>
+            <div class="metric-subtext">No real student PII used</div>
+          </div>
+          <div class="metric-card card-purple">
+            <div class="metric-title">Net Time Saved</div>
+            <div class="metric-value" style="font-size: 1.35rem;">~103 hrs/mo</div>
+            <div class="metric-subtext">3-week implementation break-even</div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Test Case #</th>
+                <th>Scenario Name</th>
+                <th>Input Condition</th>
+                <th>Expected System Action</th>
+                <th>Approval / Recovery Owner</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Case 1</strong></td>
+                <td><span class="chip chip-keep">Happy Path</span> Normal Replacement</td>
+                <td>Valid enrollment, first loss this year, UPI ₹200</td>
+                <td>Instant auto-approval, digital receipt, print queue triggered, ready in 2 days</td>
+                <td>System Automated</td>
+              </tr>
+              <tr>
+                <td><strong>Case 2</strong></td>
+                <td><span class="chip chip-reduce">Missing Info</span> Unchecked Declaration</td>
+                <td>Form submitted with declaration checkbox empty</td>
+                <td>Client/Server validation halts submission; state stays DRAFT with highlighted prompt</td>
+                <td>System Validation</td>
+              </tr>
+              <tr>
+                <td><strong>Case 3</strong></td>
+                <td><span class="chip chip-update">Duplicate</span> 2nd Replacement in Year</td>
+                <td>Valid student S-003 requesting 2nd card in 3 months</td>
+                <td>Flagged for misuse review; status UNDER_REVIEW; notification sent to student</td>
+                <td>Admin Officer</td>
+              </tr>
+              <tr>
+                <td><strong>Case 4</strong></td>
+                <td><span class="chip chip-reduce">Security</span> Inactive / Unenrolled ID</td>
+                <td>Student X-999 with suspended/inactive status</td>
+                <td>Blocked at gateway login; zero payment taken; logged with timestamp & audit record</td>
+                <td>System Database Check</td>
+              </tr>
+              <tr>
+                <td><strong>Case 5</strong></td>
+                <td><span class="chip chip-add">Failure Step</span> UPI Payment Timeout</td>
+                <td>Valid applicant; payment gateway drops after 30s</td>
+                <td>Status remains PAYMENT_PENDING for 15 min; auto-reverts to DRAFT; zero charge retry</td>
+                <td>Gateway Webhook / Admin</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="modal-backdrop" id="courseModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <span class="chip" id="modalActionChip">STATUS</span>
+          <h2 id="modalTitle" style="font-size: 1.25rem; font-weight: 700; margin-top: 0.5rem; color: var(--text-primary);">Course Title</h2>
+          <span id="modalCode" style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent-indigo-light);">CODE</span>
+        </div>
+        <button class="modal-close" id="modalCloseBtn">&times;</button>
+      </div>
+      <div id="modalBody" style="font-size: 0.9rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.85rem;">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>B.Tech Data Science & Artificial Intelligence (DSAI) • ICFAI Tech School (IFHE), Hyderabad</p>
+      <p style="margin-top: 0.25rem; font-size: 0.8rem;">Independent Student Audit & Redesign Proposal for 2030 Employment Readiness • October 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Full verified curriculum dataset
+    const coursesData = [
+      // Semester I (21 cr baseline)
+      { code: "EC101", title: "Basic Electronics", sem: "Sem I", baseCr: 4, propCr: 2, delta: -2, action: "REDUCE", cat: "Engineering", authority: "official", reason: "Pruned to 2 cr focusing solely on digital logic and computing gates relevant to DSAI hardware." },
+      { code: "CHY101", title: "Chemistry", sem: "Sem I", baseCr: 4, propCr: 2, delta: -2, action: "REDUCE", cat: "Basic Science", authority: "official", reason: "Standard engineering foundation trimmed from 4 to 2 cr; retains exposure without heavy lab burden." },
+      { code: "CS101", title: "Computer Programming", sem: "Sem I", baseCr: 4, propCr: 4, delta: 0, action: "UPDATE", cat: "CS Core", authority: "official", reason: "Introduce Python from Day 1 alongside foundational C logic (50/50 split), preparing students immediately for DS202." },
+      { code: "MT101", title: "Digital Fabrication", sem: "Sem I", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "Engineering", authority: "official", reason: "Hands-on engineering science laboratory." },
+      { code: "EG101", title: "English Language Skills", sem: "Sem I", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "Management", authority: "official", reason: "Essential professional verbal and written communication." },
+      { code: "HS101", title: "Essence of Indian Traditional Knowledge", sem: "Sem I", baseCr: 0, propCr: 0, delta: 0, action: "UNCHANGED", cat: "Management", authority: "official", reason: "Mandatory non-credit audit course required for degree conferral." },
+      { code: "MA101", title: "Linear Algebra & Ordinary Differential Equations", sem: "Sem I", baseCr: 3, propCr: 3, delta: 0, action: "KEEP", cat: "Mathematics", authority: "official", reason: "Crucial mathematical backbone for ML: vector spaces, matrix factorization, and optimization dynamics." },
+
+      // Semester II (23 cr baseline)
+      { code: "CS102", title: "Data Structures", sem: "Sem II", baseCr: 4, propCr: 4, delta: 0, action: "KEEP", cat: "CS Core", authority: "official", reason: "Core foundation for technical problem solving, tree/graph algorithms, and coding interviews." },
+      { code: "MT102", title: "Engineering Graphics", sem: "Sem II", baseCr: 3, propCr: 1, delta: -2, action: "REDUCE", cat: "Engineering", authority: "official", reason: "CAD/drafting has near-zero DSAI application; reduced to 1-credit technical diagramming literacy." },
+      { code: "CH102", title: "Environmental Sciences", sem: "Sem II", baseCr: 2, propCr: 2, delta: 0, action: "UNCHANGED", cat: "Basic Science", authority: "official", reason: "UGC mandatory environmental science foundation." },
+      { code: "MA102", title: "Higher Calculus", sem: "Sem II", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "Mathematics", authority: "official", reason: "Multivariable calculus and gradient calculations for neural backpropagation." },
+      { code: "DS101", title: "Introduction to AI & Data Science", sem: "Sem II", baseCr: 3, propCr: 3, delta: 0, action: "UPDATE", cat: "DSAI Core", authority: "official", reason: "Orientation course updated to include contemporary GenAI, LLM landscape, and data roles." },
+      { code: "PH101", title: "Physics", sem: "Sem II", baseCr: 5, propCr: 5, delta: 0, action: "UNCHANGED", cat: "Basic Science", authority: "official", reason: "General engineering physics foundational course." },
+      { code: "EG102", title: "Professional Communication", sem: "Sem II", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "Management", authority: "official", reason: "Workplace communication and technical reporting." },
+
+      // Semester III (24 cr baseline)
+      { code: "DS201", title: "Artificial Intelligence", sem: "Sem III", baseCr: 3, propCr: 3, delta: 0, action: "UPDATE", cat: "DSAI Core", authority: "official", reason: "Heuristic search, logic, and state spaces updated with probabilistic reasoning benchmarks." },
+      { code: "CS206", title: "Database Management Systems", sem: "Sem III", baseCr: 4, propCr: 4, delta: 0, action: "KEEP", cat: "CS Core", authority: "official", reason: "Essential SQL, relational algebra, and ACID transactions required by all 3 reviewed JDs." },
+      { code: "MA202", title: "Discrete Mathematics", sem: "Sem III", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "Mathematics", authority: "official", reason: "Graph theory, combinatorics, and discrete proofs." },
+      { code: "EC201", title: "Introduction to IoT", sem: "Sem III", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "Engineering", authority: "official", reason: "Sensors and embedded telemetry devices." },
+      { code: "ML201", title: "Mathematical Essentials for Machine Learning", sem: "Sem III", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "Mathematics", authority: "official", reason: "Probability distributions, multivariate optimization, and covariance matrices." },
+      { code: "CS201", title: "Object Oriented Programming Concepts", sem: "Sem III", baseCr: 4, propCr: 4, delta: 0, action: "UNCHANGED", cat: "CS Core", authority: "official", reason: "Object-oriented architecture and software design." },
+      { code: "CR201", title: "Power Skills-I", sem: "Sem III", baseCr: 1, propCr: 1, delta: 0, action: "UNCHANGED", cat: "Management", authority: "official", reason: "Soft skills and workplace readiness seminar." },
+      { code: "HS201", title: "Dynamics of Social Change", sem: "Sem III", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "Management", authority: "official", reason: "Humanities elective exploring societal transformation." },
+
+      // Semester IV (24 cr baseline)
+      { code: "CS204", title: "Computer Organization & Architecture", sem: "Sem IV", baseCr: 3, propCr: 2, delta: -1, action: "REDUCE", cat: "CS Core", authority: "official", reason: "Reduced to 2 cr focusing on GPU vs CPU architecture, memory caches, and SIMD parallelism for AI." },
+      { code: "CS203", title: "Design and Analysis of Algorithms", sem: "Sem IV", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "CS Core", authority: "official", reason: "Dynamic programming, greedy strategies, and asymptotic complexity analysis." },
+      { code: "MG201", title: "Engineering Economics & Management", sem: "Sem IV", baseCr: 3, propCr: 2, delta: -1, action: "REDUCE", cat: "Management", authority: "official", reason: "Trimmed to 2 cr focusing on IT cost-benefit models, cloud economics, and technology ROI." },
+      { code: "DS202", title: "Industry Coding Practice (Python/R)", sem: "Sem IV", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "DSAI Core", authority: "official", reason: "Hands-on coding standards, git workflows, and unit testing." },
+      { code: "DS304", title: "Machine Learning", sem: "Sem IV", baseCr: 3, propCr: 3, delta: 0, action: "KEEP", cat: "DSAI Core", authority: "official", reason: "Foundational supervised/unsupervised algorithms; central prerequisite for all advanced tracks." },
+      { code: "CS302", title: "Operating Systems", sem: "Sem IV", baseCr: 4, propCr: 4, delta: 0, action: "UNCHANGED", cat: "CS Core", authority: "official", reason: "Concurrency, scheduling, memory paging, and virtualization." },
+      { code: "CR202", title: "Power Skills-II", sem: "Sem IV", baseCr: 1, propCr: 1, delta: 0, action: "UNCHANGED", cat: "Management", authority: "official", reason: "Career preparation and interview skills." },
+      { code: "CS205", title: "Web-Enabled Technologies", sem: "Sem IV", baseCr: 4, propCr: 4, delta: 0, action: "UPDATE", cat: "CS Core", authority: "official", reason: "Update legacy stack to add FastAPI/REST API endpoints and modern frontend dashboard deployment." },
+      { code: "NEW-04", title: "Statistical Inference & A/B Testing", sem: "Sem IV", baseCr: 0, propCr: 2, delta: 2, action: "ADD", cat: "Mathematics", authority: "proposal", reason: "Addresses critical industry gap (JD2): hypothesis testing, power analysis, p-values, and causal experimentation." },
+
+      // Summer Term (3 cr)
+      { code: "IP201", title: "Internship-I", sem: "Summer", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "DSAI Core", authority: "official", reason: "Mandatory 6-8 week summer industry immersion." },
+
+      // Semester V (21 cr baseline)
+      { code: "DS303", title: "Blockchain Technology", sem: "Sem V", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "DSAI Core", authority: "official", reason: "Distributed ledgers and smart contracts." },
+      { code: "CS306", title: "Computer Networks", sem: "Sem V", baseCr: 4, propCr: 4, delta: 0, action: "UNCHANGED", cat: "CS Core", authority: "official", reason: "TCP/IP, routing protocols, and socket programming." },
+      { code: "HS301", title: "Constitution of India", sem: "Sem V", baseCr: 0, propCr: 0, delta: 0, action: "UNCHANGED", cat: "Management", authority: "official", reason: "Mandatory 0-credit graduation audit course." },
+      { code: "DS305", title: "Data Wrangling & Visualization", sem: "Sem V", baseCr: 3, propCr: 3, delta: 0, action: "KEEP", cat: "DSAI Core", authority: "official", reason: "Vital EDA and data cleansing techniques highlighted in JD1 and JD2." },
+      { code: "DS306", title: "Deep Learning", sem: "Sem V", baseCr: 4, propCr: 4, delta: 0, action: "KEEP", cat: "DSAI Core", authority: "official", reason: "Neural architectures, CNNs, Transformers, and PyTorch implementations." },
+      { code: "CS415", title: "Ethical Hacking", sem: "Sem V", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "CS Core", authority: "official", reason: "Cybersecurity and penetration testing methodologies." },
+      { code: "ML301", title: "Metaheuristic Optimization", sem: "Sem V", baseCr: 3, propCr: 2, delta: -1, action: "REDUCE", cat: "DSAI Core", authority: "official", reason: "Genetic algorithms & swarm theory trimmed to 2 cr; rarely required in fresher DSAI industry hiring." },
+      { code: "CR301", title: "Power Skills-III", sem: "Sem V", baseCr: 1, propCr: 1, delta: 0, action: "UNCHANGED", cat: "Management", authority: "official", reason: "Leadership and team communication." },
+      { code: "NEW-02", title: "Data Engineering & Pipelines", sem: "Sem V", baseCr: 0, propCr: 3, delta: 3, action: "ADD", cat: "DSAI Core", authority: "proposal", reason: "Fills huge industry void: Apache Airflow orchestration, Kafka streaming, dbt pipelines, and data lakehouses." },
+
+      // Semester VI (19 cr baseline)
+      { code: "DS307", title: "Big Data Systems", sem: "Sem VI", baseCr: 3, propCr: 3, delta: 0, action: "UPDATE", cat: "DSAI Core", authority: "official", reason: "Pivot away from legacy MapReduce toward Spark SQL, Delta Lake, and cloud object store scaling." },
+      { code: "EC308", title: "Embedded Systems", sem: "Sem VI", baseCr: 3, propCr: 2, delta: -1, action: "REDUCE", cat: "Engineering", authority: "official", reason: "Hardware-specific scope reduced to 2 cr with targeted focus on Edge AI and TinyML deployment." },
+      { code: "ML302", title: "Fuzzy and Rough Set Theory", sem: "Sem VI", baseCr: 3, propCr: 2, delta: -1, action: "REDUCE", cat: "DSAI Core", authority: "official", reason: "Niche mathematical formalism reduced to 2 cr to free space for urgent AI Ethics training." },
+      { code: "CR302", title: "Power Skills-IV", sem: "Sem VI", baseCr: 1, propCr: 1, delta: 0, action: "UNCHANGED", cat: "Management", authority: "official", reason: "Advanced campus placement simulation." },
+      { code: "ML303", title: "Reinforcement Learning", sem: "Sem VI", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "DSAI Core", authority: "official", reason: "Q-learning, policy gradients, and RLHF concepts." },
+      { code: "SP301", title: "Special Project", sem: "Sem VI", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "DSAI Core", authority: "official", reason: "Capstone project sandbox (ideal host for Task 1 workflow translation)." },
+      { code: "DS311", title: "Natural Language Processing", sem: "Sem VI", baseCr: 3, propCr: 3, delta: 0, action: "KEEP", cat: "DSAI Core", authority: "official", reason: "Essential for modern text analysis, tokenization, and transformer models (JD1, JD2)." },
+      { code: "NEW-01", title: "MLOps & Model Deployment", sem: "Sem VI", baseCr: 0, propCr: 3, delta: 3, action: "ADD", cat: "DSAI Core", authority: "proposal", reason: "Top industry requirement (JD1, JD3): Docker containerization, CI/CD, MLflow tracking, and production APIs." },
+      { code: "NEW-05", title: "AI Ethics & Responsible AI", sem: "Sem VI", baseCr: 0, propCr: 1, delta: 1, action: "ADD", cat: "Management", authority: "proposal", reason: "Vital governance module: algorithmic bias, SHAP/LIME explainability, and GDPR/EU AI compliance." },
+
+      // Semester VII (16 cr baseline)
+      { code: "CS305", title: "Computer Vision", sem: "Sem VII", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "DSAI Core", authority: "official", reason: "Object detection, YOLO, segmentation, and video analysis." },
+      { code: "CS307", title: "Cloud Computing", sem: "Sem VII", baseCr: 4, propCr: 4, delta: 0, action: "UNCHANGED", cat: "CS Core", authority: "official", reason: "AWS/Azure cloud architectures, virtual machines, and scalable clusters." },
+      { code: "DS401", title: "Human Computer Interaction", sem: "Sem VII", baseCr: 3, propCr: 2, delta: -1, action: "REDUCE", cat: "Management", authority: "official", reason: "Reduced to 2 cr focusing on human-AI interaction patterns and prompt UX." },
+      { code: "DS408", title: "Generative AI", sem: "Sem VII", baseCr: 3, propCr: 3, delta: 0, action: "UPDATE", cat: "DSAI Core", authority: "official", reason: "Synchronized with advanced LLM Engineering (ADD-03) for complete end-to-end coverage." },
+      { code: "MG401", title: "Introduction to Entrepreneurship", sem: "Sem VII", baseCr: 3, propCr: 3, delta: 0, action: "UNCHANGED", cat: "Management", authority: "official", reason: "Venture incubation, business model canvas, and tech startup economics." },
+      { code: "NEW-03", title: "LLM Engineering & AI Agents", sem: "Sem VII", baseCr: 0, propCr: 3, delta: 3, action: "ADD", cat: "DSAI Core", authority: "proposal", reason: "Direct JD1 requirement: Retrieval-Augmented Generation (RAG), vector databases (Chroma/Pinecone), LangChain & autonomous agents." },
+
+      // Semester VIII (15 cr baseline)
+      { code: "IP401", title: "Industry Internship (Full Semester)", sem: "Sem VIII", baseCr: 15, propCr: 15, delta: 0, action: "UNCHANGED", cat: "DSAI Core", authority: "official", reason: "Full-semester 15-credit corporate capstone internship with no classroom coursework." }
+    ];
+
+    // State management
+    let activeTab = "filter-view";
+    let searchQuery = "";
+    let selectedSem = "ALL";
+    let selectedAction = "ALL";
+    let selectedCat = "ALL";
+
+    // DOM Elements
+    const courseGrid = document.getElementById("courseGrid");
+    const comparisonTableBody = document.getElementById("comparisonTableBody");
+    const courseCountDisplay = document.getElementById("courseCountDisplay");
+    const searchInput = document.getElementById("searchInput");
+    const semesterFilter = document.getElementById("semesterFilter");
+    const actionFilter = document.getElementById("actionFilter");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+    const courseModal = document.getElementById("courseModal");
+    const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+    // Filter Logic
+    function getFilteredCourses() {
+      return coursesData.filter(c => {
+        const matchesSearch = searchQuery === "" || 
+          c.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+          c.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          c.reason.toLowerCase().includes(searchQuery.toLowerCase());
+        
+        const matchesSem = selectedSem === "ALL" || c.sem === selectedSem;
+        const matchesAction = selectedAction === "ALL" || c.action === selectedAction;
+        const matchesCat = selectedCat === "ALL" || c.cat === selectedCat;
+
+        return matchesSearch && matchesSem && matchesAction && matchesCat;
+      });
+    }
+
+    // Render Cards in Tab 1
+    function renderCourses() {
+      const filtered = getFilteredCourses();
+      courseCountDisplay.textContent = `Showing ${filtered.length} of ${coursesData.length} courses`;
+
+      if (filtered.length === 0) {
+        courseGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; background: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
+            <h3 style="color: var(--text-primary); margin-bottom: 0.25rem;">No matching courses found</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Try adjusting your filters or search keywords.</p>
+          </div>
+        `;
+        return;
+      }
+
+      courseGrid.innerHTML = filtered.map(c => {
+        const deltaClass = c.delta > 0 ? "delta-pos" : c.delta < 0 ? "delta-neg" : "delta-zero";
+        const deltaText = c.delta > 0 ? `+${c.delta}` : c.delta < 0 ? `${c.delta}` : "0";
+        const authorityBadge = c.authority === "official" 
+          ? `<span class="chip chip-official">🏛️ Fact</span>` 
+          : `<span class="chip chip-proposal">💡 Proposal</span>`;
+
+        return `
+          <div class="course-card status-${c.action}" onclick="openModal('${c.code}')">
+            <div>
+              <div class="course-top">
+                <span class="course-code">${c.code}</span>
+                <div class="course-badges">
+                  ${authorityBadge}
+                  <span class="chip chip-${c.action.toLowerCase()}">${c.action}</span>
+                </div>
+              </div>
+              <h3 class="course-title">${c.title}</h3>
+              <div class="course-meta">
+                <span class="meta-item">📅 ${c.sem}</span>
+                <span class="meta-item">🏷️ ${c.cat}</span>
+              </div>
+              <div class="course-rationale">
+                ${c.reason}
+              </div>
+            </div>
+            <div class="course-bottom">
+              <div>
+                <span style="color: var(--text-muted); font-size: 0.75rem;">Credits: </span>
+                <span class="credit-tag">${c.baseCr} → <strong>${c.propCr} cr</strong></span>
+              </div>
+              <span class="credit-delta ${deltaClass}">${deltaText} cr delta</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // Render Table in Tab 2
+    function renderComparisonTable() {
+      comparisonTableBody.innerHTML = coursesData.map(c => {
+        const deltaClass = c.delta > 0 ? "delta-pos" : c.delta < 0 ? "delta-neg" : "delta-zero";
+        const deltaSign = c.delta > 0 ? `+${c.delta}` : `${c.delta}`;
+
+        return `
+          <tr>
+            <td><span class="chip chip-official">${c.sem}</span></td>
+            <td class="td-code">${c.code}</td>
+            <td class="td-title">${c.title}</td>
+            <td style="font-family: 'JetBrains Mono';">${c.baseCr} cr</td>
+            <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--text-primary);">${c.propCr} cr</td>
+            <td style="font-family: 'JetBrains Mono'; font-weight: 700;" class="${deltaClass}">${deltaSign}</td>
+            <td><span class="chip chip-${c.action.toLowerCase()}">${c.action}</span></td>
+            <td style="font-size: 0.82rem; line-height: 1.4; max-width: 380px;">${c.reason}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    // Modal Handler
+    function openModal(courseCode) {
+      const c = coursesData.find(item => item.code === courseCode);
+      if (!c) return;
+
+      document.getElementById("modalTitle").textContent = c.title;
+      document.getElementById("modalCode").textContent = `${c.code} • ${c.sem} • ${c.cat}`;
+      
+      const chip = document.getElementById("modalActionChip");
+      chip.className = `chip chip-${c.action.toLowerCase()}`;
+      chip.textContent = `${c.action} (${c.delta > 0 ? '+' : ''}${c.delta} cr)`;
+
+      const body = document.getElementById("modalBody");
+      body.innerHTML = `
+        <div style="background: var(--bg-primary); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+            <span>Official Baseline Credits:</span>
+            <strong style="font-family: 'JetBrains Mono';">${c.baseCr} cr</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+            <span>Proposed Redesign Credits:</span>
+            <strong style="font-family: 'JetBrains Mono'; color: var(--accent-indigo-light);">${c.propCr} cr</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span>Information Provenance:</span>
+            <strong>${c.authority === 'official' ? '🏛️ Official ICFAI Structure' : '💡 Student 2030 Proposal'}</strong>
+          </div>
+        </div>
+
+        <div>
+          <strong style="color: var(--text-primary); font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">Rationale & Industry Mapping:</strong>
+          <p style="font-size: 0.85rem; line-height: 1.5;">${c.reason}</p>
+        </div>
+
+        <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 0.65rem;">
+          Verified under ICFAI Tech B.Tech Regulations 2023–2027.
+        </div>
+      `;
+
+      courseModal.style.display = "flex";
+    }
+
+    function closeModal() {
+      courseModal.style.display = "none";
+    }
+
+    // Event Listeners
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value.trim();
+      renderCourses();
+    });
+
+    semesterFilter.addEventListener("change", (e) => {
+      selectedSem = e.target.value;
+      renderCourses();
+    });
+
+    actionFilter.addEventListener("change", (e) => {
+      selectedAction = e.target.value;
+      renderCourses();
+    });
+
+    categoryFilter.addEventListener("change", (e) => {
+      selectedCat = e.target.value;
+      renderCourses();
+    });
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("active"));
+        tabContents.forEach(c => c.style.display = "none");
+
+        btn.classList.add("active");
+        const tabId = btn.getAttribute("data-tab");
+        document.getElementById(tabId).style.display = "block";
+      });
+    });
+
+    modalCloseBtn.addEventListener("click", closeModal);
+    courseModal.addEventListener("click", (e) => {
+      if (e.target === courseModal) closeModal();
+    });
+
+    // Theme toggle
+    themeToggleBtn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+    });
+
+    // Initial render
+    renderCourses();
+    renderComparisonTable();
+  </script>
+</body>
+</html>

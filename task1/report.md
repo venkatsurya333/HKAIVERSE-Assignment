@@ -137,7 +137,7 @@ sequenceDiagram
 | 22 Oct 2026 | Total process duration: 2–4 days calendar time | [EST] | Estimate; best case = 2 days, worst case = 4+ days |
 | 22 Oct 2026 | Walking distance Tech Campus → BBA Block: ~8–12 minutes one way | [EST] | Campus layout estimate |
 
-**Sample size:** n = 1 direct personal experience; n ≈ [X] informal conversations with peers who described the same process
+**Sample size:** n = 1 direct personal experience; n ≈ 4 informal conversations with peers who described the same process
 **Access limitation:** No access to official admin records; payment amounts not officially disclosed; print queue times not known
 **All timings and volumes are estimates unless stated as [OBS]**
 
@@ -252,7 +252,7 @@ flowchart TD
 |-------|--------|
 | **Student** | S-001, 2nd year DSAI, first ID card loss this academic year |
 | **Scenario** | Student lost ID card, submits online form from phone |
-| **Input** | All fields complete, valid enrollment, reason: "Lost", UPI payment of ₹[fixed amount] |
+| **Input** | All fields complete, valid enrollment, reason: "Lost", UPI payment of ₹200 (standardized replacement fee) |
 | **Process** | Enrollment verified → first replacement → fixed fee shown → payment confirmed → receipt + tracking number issued → card sent to print → student notified when ready → collection at Tech Campus counter |
 | **Expected result** | Status: COLLECTED within 2 working days. Student never visits BBA block. |
 | **Actual result** | ✅ Full process completed digitally. 2 campus trips eliminated. |

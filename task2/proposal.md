@@ -1,5 +1,5 @@
 # Task 2.2 — Evidence-Based Curriculum Redesign Proposal
-**Programme:** B.Tech DSAI, ICFAI [Your Campus], Batch 2023
+**Programme:** B.Tech DSAI, ICFAI Tech School (IFHE), Hyderabad, Batch 2023
 **Baseline total credits:** 166
 **Target change range:** 20–25% = 33–41 credits affected
 **Actual credits affected:** 41 credits = **24.7%** ✅

@@ -1,6 +1,6 @@
 # Task 2.1 — DSAI Curriculum Baseline
 **Degree:** B.Tech Data Science & Artificial Intelligence (DSAI)
-**Campus:** ICFAI [Your Campus]
+**Campus:** ICFAI Tech School (IFHE), Hyderabad
 **Batch:** 2023
 **Source:** Official academic programme structure, ICFAI
 **Accessed:** 22 October 2026

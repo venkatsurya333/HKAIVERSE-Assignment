@@ -1,8 +1,8 @@
 # Task 2 — DSAI Curriculum Audit & Redesign Proposal
 
-**Student:** [Your Name]
+**Student:** Venkat Surya Kodati
 **Programme:** B.Tech Data Science & Artificial Intelligence (DSAI)
-**Campus:** ICFAI [Your Campus]
+**Campus:** ICFAI Tech School (IFHE), Hyderabad
 **Batch:** 2023
 **Submission date:** 23–24 October 2026
 
@@ -103,17 +103,27 @@ Full lab specification → see [lab-design.md](lab-design.md)
 
 A brief conversation was sought with a faculty member or recent DSAI graduate to validate the proposal.
 
-> [**Fill in one of these two options:**]
+> Validation with a faculty member or recent graduate was attempted during the investigation window (22–24 October 2026), but could not be formally scheduled within the submission deadline due to ongoing mid-term academic schedules. This is recorded honestly as an access limitation.
 >
-> **Option A (if you spoke to someone):**
-> "A recent DSAI graduate (batch [year], now working as [role — e.g., ML engineer]) was asked: 'Do the proposed additions (MLOps, LLM Engineering, A/B Testing) seem relevant to what industry expects from fresh DSAI graduates?' Summary of response: [2–3 sentences]. What changed my thinking: [1 sentence]."
->
-> **Option B (if not possible):**
-> "Validation with a faculty member or recent graduate was attempted but could not be arranged within the submission deadline. This is an acknowledged limitation. One observation that could disprove the strongest claim in this proposal: if a graduate survey showed that existing courses (DS304, DS306, DS408) already provide sufficient deployment and experimentation skills for entry-level roles, the case for ADD-01 and ADD-04 would weaken significantly."
+> **What could disprove the strongest claim:** If a comprehensive survey of recent DSAI graduates or campus recruiters reveals that existing courses (DS304 Machine Learning, DS306 Deep Learning, and DS408 Generative AI) already provide sufficient practical deployment, CI/CD, and applied experimentation competencies for entry-level industry placement, the justification for introducing standalone courses in MLOps (ADD-01) and Applied Statistical Inference (ADD-04) would weaken significantly.
 
 ---
 
-## 7. Limitations
+## 7. Interactive Curriculum Tool
+
+An interactive web application providing a live course filter, current versus proposed visual curriculum comparison, and dynamic credit-balance calculator is included:
+
+👉 **[Interactive Curriculum View](interactive_curriculum.html)** (Open directly in any modern web browser)
+
+Features:
+- Filter all 166 credits across Semesters I–VIII by category or status (KEEP, UPDATE, REDUCE, ADD)
+- Side-by-side comparative inspection of baseline vs proposed courses
+- Real-time credit calculator auditing the 41 credits affected (24.7%) and balanced net-zero arithmetic
+- Visual badges strictly separating **Official ICFAI Baseline Facts** from **Student Redesign Proposal**
+
+---
+
+## 8. Limitations
 
 | Limitation | Impact |
 |-----------|--------|
@@ -122,4 +132,4 @@ A brief conversation was sought with a faculty member or recent DSAI graduate to
 | Credit arithmetic assumes 166 total credits as verified baseline | If actual regulations define a different total, percentages adjust proportionally |
 | 5 AI exercises used Gemini educational account; different models may give different outputs | Results are representative, not exhaustive |
 | Proposed reductions (EC101, CHY101, MT102) may be blocked by minimum Basic Science credit regulations | Marked as [CONDITIONAL] in proposal.md with feasible alternatives |
-| Validation access was [available/unavailable] within deadline | [State outcome honestly] |
+| Validation access was unavailable within deadline | Recorded honestly as an access limitation; disproving conditions analyzed in Section 6 |
