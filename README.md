@@ -31,7 +31,7 @@
 | Field | Detail |
 |-------|--------|
 | **Named Release** | [v1.0-final](https://github.com/venkatsurya333/HKAIVERSE-Assignment/releases/tag/v1.0-final) |
-| **Final Commit URL** | https://github.com/venkatsurya333/HKAIVERSE-Assignment/commit/LATEST_COMMIT_HASH |
+| **Final Commit URL** | [fb51bf0](https://github.com/venkatsurya333/HKAIVERSE-Assignment/commit/fb51bf010a6b87109117185079e1367afc24dc93) |
 
 > 📌 Release tag `v1.0-final` preserves the exact submitted revision for reviewer examination.
 
